@@ -1,0 +1,41 @@
+.wrapper {
+    margin: auto;
+    display: flex; /* 添加 Flexbox */
+    flex-wrap: wrap; /* 允许子元素换行 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-blue {
+    background: #ECFFFF;
+}
+
+.block-info {
+    color: white;
+    background: #00AEAE;
+    width: 500px;
+    height: 500px;
+    overflow-x: hidden;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .1);
+    flex: 1; /* 子元素平均分配空间 */
+    max-width: 300px; /* 设置最大宽度 */
+    text-align: center; /* 将标题水平居中 */
+}
+
+.block-title {
+    text-align: center;
+    display: block;
+    line-height: 1;
+}
+
+.damp {
+    background-color: #008788;
+    padding: 10px 8px;
+    color: #fff;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+}
