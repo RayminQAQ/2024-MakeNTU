@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script> <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js"
+      integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js" type="text/javascript" defer></script> <!-- file: script.js-->
+    <script src="navbar.js" type="text/javascript" defer></script> <!-- file: navbar.js-->
+  
+    <title>Load Google Sheet Data as CSV with jQuery</title>
+    
+    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="font.css" >
+</head>
+<body>
+<div class="container font">
+    <header>
+        <div class="navbar">
+            <span>MakerNTU demo</span>
+            <nav>
+                <ul>
+                    <li><a href="#home" onclick="hide('slide'), show('main-content')">Home</a></li>
+                    <li><a href="#resource" onclick="hide('main-content'), show('slide')">Our PPT</a></li>
+                    <li><a href="#image" onclick="">Image</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section 1 -->
+    <div id="main-content">
+        <div class="data-panel">
+            <div id="googleMap" class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.596892967114!2d121.55941022483267!3d25.047750637738723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab95790d71a7%3A0x3da00c76f3fd0fbe!2zMTA15Y-w5YyX5biC5p2-5bGx5Y2A5YWr5b636Lev5Zub5q61MTM46Jmf!5e0!3m2!1szh-TW!2stw!4v1714807244702!5m2!1szh-TW!2stw" 
+                    width="600" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="data-box">
+                <h3>釣到魚</h3>
+                <p id="isCatchFish">initializing . . .</p>
+            </div>
+            <div class="data-box">
+                <h3>魚鏢距離 (GPS經度)</h3>
+                <p id="hook_distance_lat">initializing . . .</p>
+            </div>
+            <div class="data-box">
+                <h3>魚鏢距離 (GPS緯度)</h3>
+                <p id="hook_distance_long">initializing . . .</p>
+            </div>
+            <div class="data-box">
+                <h3>溫度</h3>
+                <p id="temperature">initializing . . .</p>
+            </div>
+            <div class="data-box">
+                <h3>濕度</h3>
+                <p id="humid">initializing . . .</p>
+            </div>
+            <div class="data-box">
+                <h3>大氣壓</h3>
+                <p id="airPressure">initializing . . .</p>
+            </div>
+            <div class="data-box">
+                <h3>波浪(x,y軸)</h3>
+                <p id="wave_xy">initializing . . .</p>
+            </div>
+            <div class="data-box">
+                <h3>波浪(z軸)</h3>
+                <p id="wave_z">initializing . . .</p>
+            </div>
+        </div>
+        <div id="updates">
+            <h3>Updates</h3>
+            <ul id="updateList">
+                <!-- Updates will be added here by JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div id="slide" style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">  
+        <h2>Our slide point</h2>
+        <iframe 
+            loading="lazy" 
+            style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"    
+            src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGEPrkDfRE&#x2F;jOciSfYM3oPkStZkHKL8kw&#x2F;view?embed" 
+            allowfullscreen="allowfullscreen" 
+            allow="fullscreen">  
+        </iframe>
+    </div>
+</div>
+<script src="updateInfo.js"></script>
+<script>
+    // JavaScript for hiding main-content
+    function hide(sectionId) {
+        document.getElementById(sectionId).style.visibility = 'hidden';
+    }
+
+    function show(sectionId) {
+        document.getElementById(sectionId).style.visibility = 'visible';
+    }
+</script>
+
+<!--
+Reference: 
+    [1] Google map: https://stackoverflow.com/questions/17290256/get-google-map-link-with-latitude-longitude
+
+
+-->
+</body>
+</html>
