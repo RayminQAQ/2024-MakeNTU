@@ -27,7 +27,12 @@ const excelToID = {
 /* Google style sheet */
 function convertToDD(decimalDegrees) {
   let seperated = decimalDegrees.split(".");
-  return seperated[0] + "." + seperated[1] + seperated[2];
+  let result = "";
+  for(let i=0;i<seperated.length;i++){
+    result += seperated[i];
+    if(i == 0){result += ".";}
+  }
+  return result;
 }
 
 function loadData() {
@@ -102,8 +107,11 @@ function initMap() {
 */
 let map;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("googleMap"), {
+async function initMap() {
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+
+  map = new Map(document.getElementById("googleMap"), {
     center: { lat: map_lat, lng: map_long },
     zoom: 8,
   });
